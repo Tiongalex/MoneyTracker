@@ -1,4 +1,4 @@
-💰 **MoneyTracker App**
+# 💰 **MoneyTracker App**
 
 A clean, efficient, mobile application (Android only) for tracking personal income and expenses. Built with Expo and React Native, designed for persoanl usage
 
@@ -7,7 +7,7 @@ A clean, efficient, mobile application (Android only) for tracking personal inco
 
 
 
-🚀 **Features**
+# 🚀 **Features**
 
 Categorized Transactions: Organize spending with custom icons and categories
 
@@ -22,7 +22,7 @@ Manageable Transactions: Easily manage and delete history with simple gestures
 
 
 
-🛠 **Tech Stack**
+# 🛠 **Tech Stack**
 
 Framework: Expo
 
