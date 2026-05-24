@@ -1,44 +1,68 @@
 {
   "expo": {
-    "name": "MoneyTracker",
-    "slug": "MoneyTracker",
+    "name": "Money Tracker",
+    "slug": "moneytracker",
     "version": "1.0.0",
     "orientation": "portrait",
-    "icon": "./assets/images/icon.png",
+    "icon": "./assets/images/app-icon.png",
     "scheme": "moneytracker",
     "userInterfaceStyle": "automatic",
+    "newArchEnabled": false,
     "ios": {
-      "icon": "./assets/expo.icon"
+      "supportsTablet": true
     },
     "android": {
+      "package": "com.tiongalex.moneytracker",
       "adaptiveIcon": {
-        "backgroundColor": "#E6F4FE",
-        "foregroundImage": "./assets/images/android-icon-foreground.png",
-        "backgroundImage": "./assets/images/android-icon-background.png",
-        "monochromeImage": "./assets/images/android-icon-monochrome.png"
+        "backgroundColor": "#121212",
+        "foregroundImage": "./assets/images/app-icon.png",
+        "monochromeImage": "./assets/images/app-icon.png"
       },
+      "edgeToEdgeEnabled": true,
       "predictiveBackGestureEnabled": false
     },
     "web": {
+      "bundler": "metro",
       "output": "static",
-      "favicon": "./assets/images/favicon.png"
+      "favicon": "./assets/images/app-icon.png"
     },
     "plugins": [
       "expo-router",
       [
         "expo-splash-screen",
         {
-          "backgroundColor": "#208AEF",
-          "android": {
-            "image": "./assets/images/splash-icon.png",
-            "imageWidth": 76
+          "image": "./assets/images/splash-image.png",
+          "resizeMode": "contain",
+          "backgroundColor": "#ffffff",
+          "imageWidth": 200
+        }
+      ],
+      [
+        "expo-sqlite",
+        {
+          "web": {
+            "crossOriginIsolated": true
           }
         }
-      ]
+      ],
+      "expo-web-browser",
+      "expo-image"
     ],
     "experiments": {
       "typedRoutes": true,
-      "reactCompiler": true
-    }
+      "reactCompiler": false
+    },
+    "extra": {
+      "expo-sqlite": {
+        "web": {
+          "crossOriginIsolated": true
+        }
+      },
+      "router": {},
+      "eas": {
+        "projectId": "39c9f529-f57c-4770-8634-fcc674e4d752"
+      }
+    },
+    "owner": "tiongalex"
   }
 }

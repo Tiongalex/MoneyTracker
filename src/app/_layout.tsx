@@ -1,15 +1,31 @@
-import { DarkTheme, DefaultTheme, ThemeProvider } from 'expo-router';
-import { useColorScheme } from 'react-native';
+import { useEffect, useState } from 'react';
+import { Stack, SplashScreen } from 'expo-router';
+import { initDatabase } from '@/database/db';
+import '@/global.css';
 
-import { AnimatedSplashOverlay } from '@/components/animated-icon';
-import AppTabs from '@/components/app-tabs';
+SplashScreen.preventAutoHideAsync();
 
-export default function TabLayout() {
-  const colorScheme = useColorScheme();
+export default function RootLayout() {
+  const [dbReady, setDbReady] = useState(false);
+
+  useEffect(() => {
+    async function prepare() {
+      try {
+        await initDatabase();
+        setDbReady(true);
+        await SplashScreen.hideAsync(); 
+      } catch (e) {
+        console.error('DB Init Error:', e);
+      }
+    }
+    prepare();
+  }, []);
+
+  if (!dbReady) return null;
+
   return (
-    <ThemeProvider value={colorScheme === 'dark' ? DarkTheme : DefaultTheme}>
-      <AnimatedSplashOverlay />
-      <AppTabs />
-    </ThemeProvider>
+    <Stack>
+      <Stack.Screen name="(tabs)" options={{ headerShown: false }} />
+    </Stack>
   );
 }
